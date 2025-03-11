@@ -1,4 +1,4 @@
-/* 基本樣式 */
+/* basic style */
 :root {
     --primary-color: #3498db;
     --primary-dark: #2980b9;
@@ -145,6 +145,7 @@ input, select {
     border-radius: var(--border-radius);
     box-sizing: border-box;
 }
+
 
 .input-checkbox {
     width: auto;

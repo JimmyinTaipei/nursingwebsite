@@ -31,12 +31,12 @@ function createTimer(name = '', minutes = 30, hours = 0) {
             <input type="text" class="timer-name" value="${name}" placeholder="床號+藥物名稱">
         </div>
         <div class="drtm-timer-form">
-            <div class="time-inputs">
+            <div class="time-inputs" style="display: flex">
                 <div>
-                    <input type="number" class="hours-input" value="${hours}" min="0" max="99" placeholder="小時">小時
+                    <input type="number" class="hours-input" style="width:70px; margin:8px" value="${hours}" min="0" max="99" placeholder="小時">小時
                 </div>
                 <div>
-                    <input type="number" class="minutes-input" value="${minutes}" min="0" max="59" placeholder="分鐘">分鐘
+                    <input type="number" class="minutes-input" style="width:70px; margin:8px" value="${minutes}" min="0" max="59" placeholder="分鐘">分鐘
                 </div>
             </div>
         </div>

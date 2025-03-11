@@ -9,13 +9,6 @@
 <body>
     <header>
         <h1>護理臨床小工具</h1>
-        <div class="navigation">
-            <a href="nursing-timetable.html">護理時間表</a>
-            <a href="nursing-checklist.html">護理工作Checklist</a>
-            <a href="clinical-cheat-sheet.html">臨床懶人包</a>
-            <a href="surgery-and-exam-checklist.html">手術與檢查Checklist</a>
-            <a href="nursing-diagnosis/nursing-diagnosis-search-tool.html">護理診斷查詢工具</a>
-        </div>
     </header>
 
     <!-- 顯示時間 -->
@@ -48,7 +41,7 @@
                     <label for="total-dosage">藥物總劑量:</label>
                     <div class="input-group">
                         <input type="number" id="total-dosage" placeholder="例如: 1">
-                        <select id="total-unit">
+                        <select id="total-unit" >
                             <option value="mg">mg</option>
                             <option value="g" selected>g</option>
                         </select>
@@ -234,7 +227,7 @@
             <div class="alarm-list">
                 <div class="section-title">
                     <h2>已設定的鬧鐘</h2>
-                    <button type="button" id="clear-all-btn" class="clear-all-btn">清除所有鬧鐘</button>
+                    <button type="button" id="clear-all-btn" class="clear-all-btn" style="width: 50%">清除所有鬧鐘</button>
                 </div>
                 <div id="alarms-container">
                     <p>尚未設定任何鬧鐘</p>
