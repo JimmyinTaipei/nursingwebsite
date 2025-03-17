@@ -153,3 +153,105 @@ function formatTime(date) {
 function padZero(num) {
     return String(num).padStart(2, '0');
 }
+
+// Mobile Menu Functionality
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create mobile menu button
+    const menuButton = document.createElement('button');
+    menuButton.className = 'menu-button';
+    menuButton.innerHTML = `
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+    `;
+    document.body.appendChild(menuButton);
+    
+    // Create mobile menu container
+    const mobileMenu = document.createElement('div');
+    mobileMenu.className = 'mobile-menu';
+    mobileMenu.innerHTML = `
+        <span class="close-btn">&times;</span>
+        <ul id="mobile-nav-list"></ul>
+    `;
+    document.body.appendChild(mobileMenu);
+    
+    // Get the tabs and create mobile menu items
+    const tabs = document.querySelectorAll('.tab');
+    const mobileNavList = document.getElementById('mobile-nav-list');
+    
+    tabs.forEach(tab => {
+        const tabId = tab.getAttribute('data-tab');
+        const tabText = tab.textContent;
+        
+        const menuItem = document.createElement('li');
+        menuItem.innerHTML = `<a href="#" data-mobile-tab="${tabId}">${tabText}</a>`;
+        mobileNavList.appendChild(menuItem);
+    });
+    
+    // Toggle mobile menu when button is clicked
+    menuButton.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+    });
+    
+    // Close mobile menu when the X is clicked
+    const closeBtn = mobileMenu.querySelector('.close-btn');
+    closeBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+    });
+    
+    // Handle mobile menu item clicks
+    const mobileMenuItems = mobileMenu.querySelectorAll('a[data-mobile-tab]');
+    mobileMenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the tab ID
+            const tabId = this.getAttribute('data-mobile-tab');
+            
+            // Hide all content areas and reset tab styles
+            document.querySelectorAll('.calculator-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected content and activate tab
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+            
+            // Close the mobile menu
+            mobileMenu.classList.remove('active');
+        });
+    });
+    
+    // Close menu when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === mobileMenu) {
+            mobileMenu.classList.remove('active');
+        }
+    });
+    
+    // Check window size and handle responsive behavior
+    function handleResponsiveLayout() {
+        const isMobile = window.innerWidth <= 768;
+        const tabsContainer = document.querySelector('.tabs');
+        
+        if (isMobile) {
+            tabsContainer.classList.remove('mobile-visible');
+        } else {
+            // If we're on desktop, ensure the tabs are visible
+            tabsContainer.classList.add('mobile-visible');
+            // Hide mobile menu on larger screens
+            mobileMenu.classList.remove('active');
+        }
+    }
+    
+    // Initial check on page load
+    handleResponsiveLayout();
+    
+    // Check again when window is resized
+    window.addEventListener('resize', handleResponsiveLayout);
+});
