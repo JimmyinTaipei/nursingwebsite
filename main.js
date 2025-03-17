@@ -154,7 +154,7 @@ function padZero(num) {
     return String(num).padStart(2, '0');
 }
 
-// Mobile Menu Functionality
+/// Mobile Menu Functionality
 
 document.addEventListener('DOMContentLoaded', function() {
     // Create mobile menu button
@@ -166,6 +166,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="icon"></span>
     `;
     document.body.appendChild(menuButton);
+    
+    // Add section dividers to each main section
+    const sections = document.querySelectorAll('.calculator-content');
+    sections.forEach(section => {
+        section.classList.add('section-divider');
+    });
     
     // Create mobile menu container
     const mobileMenu = document.createElement('div');
@@ -255,3 +261,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check again when window is resized
     window.addEventListener('resize', handleResponsiveLayout);
 });
+
