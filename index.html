@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>護理臨床小工具</title>
-    <link rel="stylesheet" href="nursing-clinical-tools.css">
+    <link rel="stylesheet" href="css/nursing-clinical-tools.css">
+    <link rel="stylesheet" href="css/mobile-style.css">
 </head>
 <body>
     <header>
-        <h1>護理臨床小工具</h1>
+        <div class="navigation-container">
+            <div class="navigation">
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links" id="nav-links">
+                    <a href="user-guide.html">使用說明</a>
+                    <a href="nursing-checklist.html">護理工作Checklist</a>
+                    <a href="index.html">護理臨床小工具</a>
+                </div>
+            </div>
+        </div>
+        <h1 style="margin-top: 60px">護理臨床小工具</h1>
     </header>
 
     <!-- 顯示時間 -->
-    <div class="date-container section-divider">
+    <div class="date-container">
         <div class="date" id="date"></div>
         <div class="day" id="day"></div>
         <div class="time" id="time"></div>
@@ -41,7 +56,7 @@
                     <label for="total-dosage">藥物總劑量:</label>
                     <div class="input-group">
                         <input type="number" id="total-dosage" placeholder="例如: 1">
-                        <select id="total-unit" >
+                        <select id="total-unit">
                             <option value="mg">mg</option>
                             <option value="g" selected>g</option>
                         </select>
@@ -227,7 +242,7 @@
             <div class="alarm-list">
                 <div class="section-title">
                     <h2>已設定的鬧鐘</h2>
-                    <button type="button" id="clear-all-btn" class="clear-all-btn" style="width: 50%">清除所有鬧鐘</button>
+                    <button type="button" id="clear-all-btn" class="clear-all-btn" style="width: 49%;">清除所有鬧鐘</button>
                 </div>
                 <div id="alarms-container">
                     <p>尚未設定任何鬧鐘</p>
@@ -255,14 +270,29 @@
                     </div>
                 </div>
             </div>
+            <div class="confirmation-modal" id="blood-confirmation">
+                <div class="confirmation-content">
+                    <h2>輸血監測排程</h2>
+                    <div class="alarm-schedule">
+                        <p>將設置以下鬧鐘：</p>
+                        <ul id="blood-schedule-list"></ul>
+                    </div>
+                    <div class="confirmation-buttons">
+                        <button type="button" id="confirm-blood-btn" class="confirm-btn">確認設定</button>
+                        <button type="button" id="cancel-blood-btn" class="cancel-btn">取消</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- 引入JavaScript檔案 -->
-    <script src="main.js"></script>
-    <script src="drug-calculator.js"></script>
-    <script src="drip-rate.js"></script>
-    <script src="drug-timer.js"></script>
-    <script src="clinical-clock.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="javascript/drug-calculator.js"></script>
+    <script src="javascript/drip-rate.js"></script>
+    <script src="javascript/drug-timer.js"></script>
+    <script src="javascript/clinical-clock.js"></script>
+    <script src="javascript/mobile-script.js"></script>
+    
 </body>
 </html>
