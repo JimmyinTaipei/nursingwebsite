@@ -39,6 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.tab').forEach(t => {
                 t.classList.remove('active');
             });
+
+            // 如果點擊的是時鐘標籤
+            if (this.getAttribute('data-tab') === 'clock') {
+                // 如果setCurrentTimeToInput函數存在，則調用它
+                if (typeof setCurrentTimeToInput === 'function') {
+                    setCurrentTimeToInput();
+                }
+            }
             
             // 顯示選定的內容並激活標籤
             const tabId = this.getAttribute('data-tab');
